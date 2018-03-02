@@ -1,0 +1,321 @@
+@import '~antd/dist/antd.less';
+
+// normalize
+
+//  variables
+@color-yellow: #fff781;
+@color-grey: #bbb;
+@color-section-header: #363636;
+@color-block-header: #424242;
+@color-block-descr: #7f7f7f;
+@color-bg-light-grey: #f5f5f5;
+
+ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+@green-custom: #44b91a;
+@primary-color: @green-custom;
+@btn-border-radius-base: 10em;
+@btn-font-weight: bold;
+@btn-font-size-default: 16px;
+@btn-font-size-lg: @btn-font-size-default;
+@input-height-base: 39px;
+
+// headers
+@login-banner-header: 44px;
+@login-banner-text: 20px;
+@section-header: 30px;
+@menu-dark-bg: linear-gradient(to right, #1d1e63 0%,#0f1526 100%);
+
+// card
+@card-padding-base: 20px 50px 30px 20px;
+@landing-section-header: 38px;
+
+.ant-menu-horizontal {
+    position: absolute;
+    justify-content: flex-end;
+    top: 0;
+    border-bottom: 0;
+    line-height: 70px;
+    display:flex;
+    z-index: 1;
+    width: 100%;
+    .ant-menu-item {
+      &.green > a {
+        color:@green-custom;
+      }
+      a{
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+}
+
+.btn-link(){
+  border: 0px;
+  color: @green-custom;
+  background: transparent;
+  border: none;
+  .ant-btn > .anticon + span, .ant-btn > span + .anticon {
+    margin-left: 3px;
+  }
+  &:hover {
+    background: transparent;
+  }
+}
+
+.btn-link-small(){
+  font-size:14px;
+  .btn-link()
+}
+
+//  Login
+
+.login-page {
+  height:100vh;
+}
+
+.aside-banner {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  height:100%;
+  color: #fff;
+
+  h1 {
+    font-weight: bold;
+    font-size: @login-banner-header;
+    color:inherit;
+  }
+  ul {
+    font-size: @login-banner-text;
+    li {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.col {
+  height:100%;
+}
+
+.col-banner {
+  background: linear-gradient(to right, #1d1e63 0%,#0f1526 100%);
+}
+
+.col.login-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position:relative;
+  h1 {
+    font-size: @section-header;
+  }
+  .login-form {
+    width: 300px;
+    label {
+      font-size: 16px;
+      font-weight:bold;
+      margin-bottom: 0;
+    }
+    .lable-description {
+      display:block;
+      margin: 11px 0;
+      font-weight:14px;
+      color:@color-grey;
+    }
+  }
+  .login-footer {
+    display:flex;
+    width: 80%;
+    justify-content: space-between;
+    position:absolute;
+    bottom: 70px;
+  }
+}
+
+.link {
+  .btn-link();
+}
+.link-small {
+  .btn-link-small();
+}
+.btn-success{
+    padding: 0 50px;
+    height:@btn-height-lg;
+  }
+
+// Landing page
+#landing-page {
+  background: linear-gradient(to right, #1d1e63 0%,#0f1526 100%);
+  .aside-wrapper {
+    width: 100%;
+    height: 600px;
+    .aside-landing-banner {
+      width: 75%;
+      justify-content: flex-end;
+      align-items: flex-start;
+      .btn-get-started {
+        margin-top: 35px;
+      }
+    }
+  }
+  .deals {
+    display: flex;
+    margin: 50px auto;
+    flex-direction: column;
+    width: 75%;
+    color: #fff;
+    .deals-per-day {
+      font-size: 30px;
+    }
+    .deals-per-day {
+      font-size: 30px;
+      font-weight: bold;
+      &.deals-number {
+        color:@color-yellow;
+      }
+      &.deals-text {
+        margin-right: 30px;
+      }
+    }
+    .deals-description {
+      margin-top: 12px;
+      line-height: 17px;
+    }
+  }
+}
+
+.landing-exchange {
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.exchange-box {
+  width: 385px;
+  .ant-form-vertical .ant-form-item {
+      padding-bottom: 0;
+      &.btn-exchange {
+        margin-bottom: 0;
+        text-align: center;
+      }
+  }
+  .ant-row.ant-form-item {
+    margin-bottom: 20px;
+  }
+  .exchange-icons {
+    margin-bottom: 20px;
+  }
+  .exchange-lable {
+    display:flex;
+    justify-content: space-between;
+    font-weight: bold;
+    label {
+      font-size: 16px;
+    }
+    span {
+      font-size: 16px;
+      color: @color-grey;
+    }
+  }
+}
+
+.green-icon {
+  font-size: 20px;
+  color: @green-custom;
+  font-weight: bold;
+}
+
+// how it works section
+.landing-section-header {
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: @landing-section-header;
+  color: @color-section-header;
+}
+#how-it-works {
+  padding: 70px 0 0;
+  .img-blocks {
+    display: flex;
+    justify-content: space-around;
+    margin: 70px 0;
+    .img-blocks-item {
+      max-width: 230px;
+      text-align: center;
+      .block-header {
+        font-size: 20px;
+        font-weight: bold;
+        color: @color-block-header;
+      }
+      .block-description {
+        color: @color-block-descr;
+      }
+      img {
+        width: 125px;
+        height: auto;
+        margin-bottom:  30px;
+      }
+    }
+  }
+  .trading {
+    background: @color-bg-light-grey;
+    padding: 60px 0;
+    overflow-x: hidden;
+    h3 {
+      font-size: 30px;
+      font-weight: bold;
+      color: @color-section-header;
+    }
+    ul {
+      max-width: 490px;
+      margin: 36px 0;
+      li {
+        font-size: 14px;
+        font-weight: bold;
+        color: @color-block-header;
+        margin-bottom: 20px;
+        &:last-of-type {
+          margin-bottom:0;
+        }
+    }
+    }
+    .img-laptop {
+      img {
+        width: 100%;
+        min-width: 500px;
+        height:auto;
+      }
+    }
+  }
+}
+
+// FAQ
+#faq {
+  padding: 40px 0 70px;
+  .questions-list {
+    width: 50%;
+    margin: 70px auto 0;
+    min-width: 480px;
+    color: @green-custom;
+    font-size: 20px;
+    font-weight: bold;
+    li {
+      margin-bottom: 20px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .anticon-arrow-down {
+      margin-right: 20px;
+    }
+  }
+}
