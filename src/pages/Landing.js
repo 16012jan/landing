@@ -1,11 +1,12 @@
 import React,{ Component, Fragment } from "react";
 import { Row, Col, Form, Input, Icon, Button } from '../modules/antd';
 
-import Header from '../components/Header/Header'
-import ExchangeForm from '../components/ExchangeForm/ExchangeForm'
+import LandingMenu from '../components/LandingMenu/LandingMenu'
 import LandingHome from '../components/Landing/LandingHome'
 import HowItWorks from '../components/Landing/HowItWorks'
 import AskedQuestions from '../components/Landing/AskedQuestions'
+import PaymentSystems from '../components/Landing/PaymentSystems'
+import LandingFooter from '../components/Landing/LandingFooter'
 
 
 
@@ -13,10 +14,14 @@ class Landing extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
+        <header className="landing-top-menu">
+          <LandingMenu />
+        </header>
         <LandingHome />
         <HowItWorks />
         <AskedQuestions />
+        <PaymentSystems />
+        <LandingFooter />
       </Fragment>
     )
   }

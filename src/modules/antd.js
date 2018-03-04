@@ -6,6 +6,10 @@ import Input from "antd/lib/input"
 import Icon from "antd/lib/icon"
 import Button from "antd/lib/button"
 import Dropdown from "antd/lib/dropdown"
+import Table from "antd/lib/table"
+
 const FormItem = Form.Item;
 
-export { Card, Row, Col, Form, Input, Icon, Button, Dropdown, FormItem }
+export { Card, Row, Col, Form, Input, Icon,
+          Button, Dropdown, Table, FormItem
+        }
