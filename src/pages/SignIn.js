@@ -8,10 +8,10 @@ class SignIn extends React.Component {
   render() {
     return (
       <Row className="login-page">
-        <Col sx={24} md={12} className="col col-banner">
+        <Col span={12} className="col col-banner">
           <LoginSideBanner />
         </Col>
-        <Col xs={{ span: 18, offset: 4 }} md={{ span: 10, offset: 2 }} className="col login-wrapper">
+        <Col span={18} offset={4} lg={{ span: 10, offset: 2 }} className="col login-wrapper">
           <section>
             <h1>Please Login to the system</h1>
             <Form onSubmit={this.handleSubmit} className="login-form" layout="vertical">

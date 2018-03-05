@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <Fragment>
         <header className="landing-top-menu">
-          <LandingMenu />
+          <LandingMenu  menu="homeMenuItems"/>
         </header>
         <Row className="home-row">
           <Col span={8} offset={2}>

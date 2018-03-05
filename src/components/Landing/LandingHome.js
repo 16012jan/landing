@@ -9,7 +9,7 @@ class LandingHome extends PureComponent {
     return (
       <div id="landing-page">
         <Row className="aside-wrapper">
-          <Col span={14} className="col">
+          <Col span={20} offset={2} lg={{span:14}}  className="col">
             <aside className="aside-banner aside-landing-banner">
               <h1>Buy any Cryptocurrency with ease</h1>
               <ul>
@@ -19,12 +19,12 @@ class LandingHome extends PureComponent {
               <Button type="primary" className="btn-success btn-get-started">Get Started</Button>
             </aside>
           </Col>
-          <Col span={10} className="col landing-exchange">
+          <Col span={24}  lg={{span:10}} className="col landing-exchange">
             <ExchangeForm />
           </Col>
         </Row>
         <Row>
-          <Col span={12}>
+          <Col span={20} offset={2} lg={{span:12}}>
             <div className="deals">
               <div>
                 <span className="deals-per-day deals-text">Deals per day</span>
