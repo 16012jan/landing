@@ -10,6 +10,7 @@ const menues = {
     {path: 'how-it-works', name: 'How It Works', key:'how-it-works'},
     {path: 'faq', name: 'F.A.Q', key:'faq'},
     {path: 'payment-systems', name: 'Payment Systems', key:'payment-systems'},
+    {path: 'rates', name: 'Rates', key:'rates'},
     {path: 'get-started', name: 'Get Started', key:'get-started', button:"getStarted"},
     {path: 'signin', name: 'Sign In', key:'signin', icon: "arrow-right"},
     {path: 'signup', name: 'Sign Up', key:'signup', icon: "arrow-right"},

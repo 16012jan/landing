@@ -19,7 +19,9 @@ class Landing extends Component {
         </header>
         <LandingHome />
         <HowItWorks />
-        <AskedQuestions />
+        <div className="faq-wrapper">
+          <AskedQuestions />
+        </div>
         <PaymentSystems />
         <LandingFooter />
       </Fragment>

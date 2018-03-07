@@ -17,18 +17,18 @@ class Home extends Component {
           <LandingMenu  menu="homeMenuItems"/>
         </header>
         <Row className="home-row">
-          <Col span={8} offset={2}>
+          <Col span={24} lg={{span:8, offset:2}}>
             <ExchangeForm />
           </Col>
-          <Col span={12} >
+          <Col span={24} lg={{span:12}} >
             <ExchangeRate />
           </Col>
         </Row>
         <Row className="home-row">
-          <Col span={8} offset={2}>
+          <Col span={24} lg={{span:8, offset:2}}>
             <ReserveTable />
           </Col>
-          <Col span={12} >
+          <Col span={24} lg={{span:12}} >
             <LimitsTable />
           </Col>
         </Row>

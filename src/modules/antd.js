@@ -9,9 +9,12 @@ import Dropdown from "antd/lib/dropdown"
 import Table from "antd/lib/table"
 import Avatar from "antd/lib/avatar"
 import Menu from "antd/lib/menu"
+import Layout from "antd/lib/layout"
 
 const FormItem = Form.Item;
+const { Header, Footer, Sider, Content } = Layout;
 
 export { Card, Row, Col, Form, Input, Icon,
-          Button, Dropdown, Table, Avatar, Menu, FormItem
+          Button, Dropdown, Table, Avatar, Menu, FormItem,
+          Layout, Header, Content, Footer
         }

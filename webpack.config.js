@@ -7,6 +7,7 @@ module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
+    // publicPath: "/build/",
     filename: "[name].js"
   },
   module: {
@@ -55,7 +56,7 @@ module.exports = {
         NODE_ENV: JSON.stringify( process.env.NODE_ENV || 'development')
       }
     }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
+    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('bundle.css'),
     // new CompressionPlugin({
