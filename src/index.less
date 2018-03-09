@@ -1,6 +1,9 @@
 @import '~antd/dist/antd.less';
+@import 'fonts.less';
 
-// normalize
+* {
+  font-family: 'ProximaNova', sans-serif;
+}
 
 //  variables
 @color-yellow: #fff781;
@@ -15,6 +18,7 @@
 @main-theme-bg: linear-gradient(to right, #1d1e63 0%,#0f1526 100%);
 @color-table-divider: #dadada;
 @color-btn-blue: linear-gradient(31deg, #3a3897, #29abe2);
+@color-red: #e24c59;
 
 ul {
   margin:0;
@@ -818,7 +822,7 @@ ul {
 
 //  help page
 .full-height.ant-layout {
-  height: 100vh;
+  min-height: 100vh;
   background: @color-bg-lighter-grey;
 }
 
@@ -835,7 +839,7 @@ ul {
     color: @green-custom;
     &:before {
       content: "Basics";
-      display:blick;
+      display:block;
       color: @color-section-header;
       margin-right: 25px;
     }
@@ -851,6 +855,8 @@ ul {
 
 .rates-content {
   .choose-currency {
+    cursor: pointer;
+    margin-bottom: 20px;
     display:flex;
     h2 {
       font-size: 30px;
@@ -875,8 +881,16 @@ ul {
         span {
           display: inline-block;
           height: 34px;
-          margin-left: 10px;
+          margin-left: 44px;
           line-height: 34px;
+        }
+        &:before {
+          content: '';
+          display: block;
+          background: url('./assets/ukr.svg');
+          width:34px;
+          height: 34px;
+          position:absolute;
         }
       }
       .caret-icons {
@@ -888,5 +902,123 @@ ul {
         }
       }
     }
+  }
+  .currency-rates-chart {
+    .ant-card-body {
+      height: 100%;
+      padding: 15px 20px 10px;
+      .no-chart-placeholder {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: @color-grey;
+        text-align: center;
+      }
+    }
+    width: 50%;
+    height: 300px;
+    margin: 0 auto 40px;
+    background: #fff;
+    border-radius: 4px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgda(0,0,0, .5);
+  .select-currency-modal {
+    height: 100%;
+    padding: 15px 20px 10px;
+  }
+}
+
+.currencies-wrapper {
+  position:relative;
+  margin-bottom: 40px;
+  h2 {
+    color: @color-section-header;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .prev-currencies {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    font-size: 25px;
+    color: @green-custom;
+    font-weight: bold;
+  }
+  .next-currencies {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    font-size: 25px;
+    color: @green-custom;
+    font-weight: bold;
+  }
+  .currencies-slider {
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    overflow: hidden;
+    padding: 2px;
+  }
+}
+
+.currency-box {
+  flex-shrink: 0;
+  display:flex;
+  flex-direction: column;
+  font-size:  12px;
+  margin: 0 5px;
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: @color-block-header;
+    text-align:center;
+    margin-bottom: 20px;
+  }
+  &.ant-card-bordered {
+    border: 0;
+  }
+  .ant-card-body {
+    padding: 15px 20px 10px;
+  }
+  width: 160px;
+  heigth: 138px;
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+  .rate-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-align:center;
+    .rate-info-col {
+      .currency-box-text {
+        line-height: 17px;
+        color: @color-block-descr;
+      }
+      .currency-box-rate {
+        line-height: 17px;
+        color: @color-block-header;
+      }
+      .sell-rate-changes {
+        line-height: 17px;
+        color: @color-red;
+      }
+      .buy-rate-changes {
+        line-height: 17px;
+        color: @green-custom;
+      }
+    }
+  }
+  .currency-box-date {
+    line-height: 15px;
+    color: @color-grey;
+    text-align:center;
   }
 }

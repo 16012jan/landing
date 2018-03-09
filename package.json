@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress --inline --watch",
+    "start": "NODE_ENV=development webpack-dev-server --progress",
     "build": "webpack"
   },
   "keywords": [],
@@ -22,12 +22,14 @@
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "postcss-loader": "^2.1.1",
     "prop-types": "^15.6.1",
+    "react-hot-loader": "^4.0.0",
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^3.11.0",

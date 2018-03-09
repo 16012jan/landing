@@ -1,0 +1,24 @@
+.loadFont(@name){
+    font-family: @name;
+    src: url('./assets/fonts/@{name}/@{name}.eot'), /* IE9 Compat Modes */
+         url('./assets/fonts/@{name}/@{name}.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./assets/fonts/@{name}/@{name}.woff') format('woff'), /* Pretty Modern Browsers */
+         url('./assets/fonts/@{name}/@{name}.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  .loadFont('ProximaNova-Bold');
+}
+
+@font-face {
+  .loadFont('ProximaNova-Regular');
+}
+
+@font-face {
+  .loadFont('ProximaNova-RegularIt');
+}
+
+@font-face {
+  .loadFont('ProximaNova-Semibold');
+}

@@ -26,4 +26,4 @@ const cryptoCurrencisInfoMockData = [
   {name: 'LTC/UAH', buy: 26.856, buy: {status: 'up', buy_value: '0.5'}, sell: {status: 'down', sell_value: '0.5'}, date: '08-14-2018 19:32'}
 ]
 
-export {questions, fiatCurrencisInfoMockData, fiatCurrencisInfoMockData}
+export {questions, fiatCurrencisInfoMockData, cryptoCurrencisInfoMockData}

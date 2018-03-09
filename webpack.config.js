@@ -7,7 +7,7 @@ module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    // publicPath: "/build/",
+    publicPath: "/build/",
     filename: "[name].js"
   },
   module: {
@@ -46,7 +46,13 @@ module.exports = {
                 noIeCompat: true
             }
         }]
-      },
+      },{
+        test: /\.woff2?$|\.woff$|\.ttf$|\.eot$/,
+        loader: 'file-loader?[name].[ext]&outputPath=./assets/fonts/&publicPath=assets/fonts/'
+      },{
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: 'file-loader?[name].[ext]&outputPath=./assets/images/&publicPath=assets/images/'
+      }
     ]
   },
   plugins: [
