@@ -2,12 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/build/",
+    publicPath: "/dist/",
     filename: "[name].js"
   },
   module: {
@@ -56,6 +57,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html"
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         BROWSER: JSON.stringify(true),
