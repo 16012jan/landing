@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server",
-    "build": "webpack"
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "keywords": [],
   "author": "",
@@ -38,11 +38,13 @@
   "dependencies": {
     "antd": "^3.2.2",
     "chart.js": "^2.7.2",
+    "cross-env": "^5.1.4",
     "normalize.less": "^1.0.0",
     "qrcode-react": "^0.1.16",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
+    "react-hot-loader": "^4.0.0",
     "react-recaptcha": "^2.3.7",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",

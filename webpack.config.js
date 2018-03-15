@@ -7,19 +7,85 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
+const pathToDist = path.resolve(__dirname, "dist");
+const pathToSrc = path.resolve(__dirname, "src");
+
+
+let pluginsArray = [
+  new HtmlWebpackPlugin({
+    template: "./index.html"
+  }),
+  new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      DEVELOPMENT:isDevelopment
+  }),
+  new CopyWebpackPlugin([
+      {from:'./assets/images',to:'./assets/images'}
+  ])
+];
+
+if (isDevelopment) {
+  pluginsArray = [
+    ...pluginsArray,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      children: true,
+      async: true,
+    }),
+
+  ];
+} else {
+  pluginsArray = [
+    ...pluginsArray,
+    new ExtractTextPlugin('bundle.css'),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+
+    new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      mangle: true,
+      compress: {
+        warnings: false,
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true
+      },
+      output: {
+        comments: false,
+      },
+      exclude: [/\.min\.js$/gi]
+    })
+  ];
+}
 
 module.exports = {
-  entry: [
+  context: pathToSrc,
+  entry: isDevelopment?
+  [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    "./src/index.js",
-  ],
+    "./index.js",
+  ]
+  :
+  ["./index.js"],
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: pathToDist,
     publicPath: "/",
     filename: "[name].js"
   },
+
   watch: isDevelopment,
+  devtool:  isDevelopment ? 'source-map' : false,
+
   module: {
     rules: [
       {
@@ -39,16 +105,18 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [{
+        use: isDevelopment?
+        [{
             loader: "style-loader"
         }, {
-            loader: "css-loader"
+            loader: "css-loader",
+            options: {minimize: !isDevelopment, sourceMap: isDevelopment}
         }, {
             loader: "postcss-loader",
             options: {
                 ident: "postcss",
                 plugins: (loader) => [
-                    require("autoprefixer")(),
+                    require("autoprefixer")({browsers:["last 2 version"]}),
                ]
             }
         },{
@@ -56,6 +124,27 @@ module.exports = {
                 noIeCompat: true
             }
         }]
+        :
+        ExtractTextPlugin.extract({
+           fallback: "style-loader",
+           use: [
+              {
+            loader: "css-loader",
+            options: {minimize: !isDevelopment, sourceMap: isDevelopment}
+        }, {
+            loader: "postcss-loader",
+            options: {
+                ident: "postcss",
+                plugins: (loader) => [
+                    require("autoprefixer")({browsers:["last 2 version"]}),
+               ]
+            }
+        },{
+            loader: "less-loader", options: {
+                noIeCompat: true
+            }
+        }]
+      })
       },{
         test: /\.woff2?$|\.woff$|\.ttf$|\.eot$/,
         loader: 'file-loader?name=[name].[ext]&outputPath=./assets/fonts/&publicPath=/assets/fonts/'
@@ -65,55 +154,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        BROWSER: JSON.stringify(true),
-        NODE_ENV: JSON.stringify( process.env.NODE_ENV || 'development')
-      }
-    }),
-    new CopyWebpackPlugin([
-        {from:'./src/assets/images',to:'./assets/images'}
-    ]),
-    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new ExtractTextPlugin('bundle.css'),
-    // new CompressionPlugin({
-    //     asset: "[path].gz[query]",
-    //     algorithm: "gzip",
-    //     test: /\.js$|\.html$/,
-    //     threshold: 10240,
-    //     minRatio: 0.8
-    // }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   mangle: true,
-    //   compress: {
-    //     warnings: false,
-    //     pure_getters: true,
-    //     unsafe: true,
-    //     unsafe_comps: true,
-    //     screw_ie8: true
-    //   },
-    //   output: {
-    //     comments: false,
-    //   },
-    //   exclude: [/\.min\.js$/gi]
-    // }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   children: true,
-    //   async: true,
-    // }),
-    new webpack.optimize.OccurrenceOrderPlugin()
-  ],
-  devtool:  isDevelopment ? 'source-map' : false,
+
+  plugins: pluginsArray,
+  // plugins: [
+  //   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
+  //
+  // ],
+
   devServer: {
     contentBase: "/",
-    watchContentBase: true,
     hot:true,
     inline:true,
     historyApiFallback: true,
@@ -124,6 +173,5 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
-
   }
 };

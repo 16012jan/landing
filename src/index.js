@@ -15,3 +15,7 @@ ReactDOM.render((
     </BrowserRouter>
 </Provider>
 ), document.getElementById('root'))
+
+if (DEVELOPMENT && module.hot ) {
+ module.hot.accept();
+}
