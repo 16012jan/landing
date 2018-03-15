@@ -15,8 +15,10 @@ import Tabs from "antd/lib/tabs"
 const FormItem = Form.Item;
 const { Header, Footer, Sider, Content } = Layout;
 const TabPane = Tabs.TabPane;
+const { TextArea } = Input;
 
 export { Card, Row, Col, Form, Input, Icon,
           Button, Dropdown, Table, Avatar, Menu, FormItem,
-          Layout, Header, Content, Footer, Tabs, TabPane
+          Layout, Header, Content, Footer, Tabs, TabPane,
+          TextArea
         }

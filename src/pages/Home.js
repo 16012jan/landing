@@ -8,14 +8,17 @@ import LimitsTable from '../components/LimitsTable/LimitsTable'
 import ReserveTable from '../components/ReserveTable/ReserveTable'
 import HomeFooter from '../components/HomeFooter/HomeFooter'
 
+import './home.less'
+
 
 class Home extends Component {
   render() {
     return (
       <Fragment>
         <header className="landing-top-menu">
-          <LandingMenu  menu="homeMenuItems"/>
+          <LandingMenu  menu="homeMenuItems" selected="/"/>
         </header>
+
         <Row className="home-row">
           <Col span={24} lg={{span:8, offset:2}}>
             <ExchangeForm />

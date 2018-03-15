@@ -4,6 +4,7 @@ import { Row, Col, Form, Input, Icon, Button, Layout, Header, Content, Footer } 
 import LandingMenu from '../components/LandingMenu/LandingMenu'
 import AskedQuestions from '../components/Landing/AskedQuestions'
 import HomeFooter from '../components/HomeFooter/HomeFooter'
+import './help.less'
 
 
 class Help extends Component {

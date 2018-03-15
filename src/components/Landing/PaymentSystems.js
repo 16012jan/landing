@@ -1,12 +1,13 @@
 import React, {PureComponent} from "react";
 import { Row, Col } from'../../modules/antd';
+// import image from '../../assets/images/avex.svg'
 
 const paymentsLogos = [
-  {path: "assets/payment_systems/avex.svg", name: "AmericanExpress"},
-  {path: "assets/payment_systems/dscvr.svg", name: "DiscoverNetwork"},
-  {path: "assets/payment_systems/mstrd.svg", name: "MasterCard"},
-  {path: "assets/payment_systems/paypal.svg", name: "PayPall"},
-  {path: "assets/payment_systems/visa.svg", name: "Visa"},
+  {path: "assets/images/avex.svg", name: "AmericanExpress"},
+  {path: "assets/images/dscvr.svg", name: "DiscoverNetwork"},
+  {path: "assets/images/mstrd.svg", name: "MasterCard"},
+  {path: "assets/images/paypal.svg", name: "PayPall"},
+  {path: "assets/images/visa.svg", name: "Visa"},
 ]
 
 

@@ -1,7 +1,6 @@
 import React,{PureComponent} from "react";
 import { Row, Col, Form, Input, Icon, Button } from '../../modules/antd';
 
-
 class HowItWorks extends PureComponent {
   render() {
     return (
@@ -9,17 +8,17 @@ class HowItWorks extends PureComponent {
         <h2 className="landing-section-header">How It Works</h2>
         <Row className="img-blocks">
           <Col span={8} className="img-blocks-item">
-            <img src="assets/orders.svg" alt="Orders image"/>
+            <img src="assets/images/orders.svg" alt="Orders image"/>
             <h3 className="block-header">Fast creating orders</h3>
             <p className="block-description">Automatically included information from profile</p>
           </Col>
           <Col span={8} className="img-blocks-item">
-            <img src="assets/tracking.svg" alt="Tracking image"/>
+            <img src="assets/images/tracking.svg" alt="Tracking image"/>
             <h3 className="block-header">Tracking cryptocurrency</h3>
             <p className="block-description">Convenient display of graphs</p>
           </Col>
           <Col span={8} className="img-blocks-item">
-            <img src="assets/wallet.svg" alt="Wallet image"/>
+            <img src="assets/images/wallet.svg" alt="Wallet image"/>
             <h3 className="block-header">Referal and bonus programs</h3>
             <p className="block-description">Ability to make transactions with lower free</p>
           </Col>
@@ -44,7 +43,7 @@ class HowItWorks extends PureComponent {
               <Button type="primary" className="btn-success">Get Exchange Now</Button>
           </Col>
           <Col span={11} className="img-laptop">
-            <img src="assets/laptop/laptop@2x.png" alt="Laptop image"/>
+            {/* <img src="assets/images/laptop/laptop@2x.png" alt="Laptop image"/> */}
           </Col>
         </Row>
       </section>

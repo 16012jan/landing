@@ -1,8 +1,11 @@
 import React,{Component} from "react";
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { NavLink } from "react-router-dom";
 import { Row, Col, Form, Input, Icon, Button, Menu, Avatar } from 'antd';
 const MenuItemGroup = Menu.ItemGroup;
+
+import './menu.less';
 
 const menues = {
   navMenuItems: [
@@ -51,7 +54,7 @@ class LandingMenu extends Component {
         const icon = !!item.icon ? <Icon type={item.icon} /> : null;
         const profile = !!item.profile ? <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" className="menu-avatar"/> : null
         return (
-          <Menu.Item key={item.key} className={icon ? 'green' : null}>
+          <Menu.Item key={item.key} className={classNames({ green: icon ? true : null }, { 'ant-menu-item-selected':  this.props.selected === item.path ? true : false })}>
             <NavLink to={item.path}>
               {profile}
               {item.name}

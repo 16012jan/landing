@@ -9,6 +9,7 @@
 @color-yellow: #fff781;
 @color-grey: #bbb;
 @color-section-header: #363636;
+@color-page-header: @color-section-header;
 @color-input-text: @color-section-header;
 @color-block-header: #424242;
 @color-block-descr: #7f7f7f;
@@ -28,6 +29,7 @@ ul {
 
 @green-custom: #44b91a;
 @primary-color: @green-custom;
+@primary-6: tra
 @btn-border-radius-base: 10em;
 @btn-font-weight: bold;
 @btn-font-size-default: 16px;
@@ -44,9 +46,9 @@ ul {
 @card-padding-base: 20px 50px 30px 20px;
 @landing-section-header: 38px;
 
-.anticon.anticon-arrow-right {
-  font-size: 10px;
-}
+// .anticon.anticon-arrow-right {
+//   font-size: 10px;
+// }
 
 .ant-menu-horizontal {
     justify-content: flex-end;
@@ -109,11 +111,39 @@ ul {
         }
       }
     }
+    .ant-menu-item.ant-menu-item-selected {
+      border-bottom-color: transparent;
+      &:before {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        border-radius: 10em;
+        background: #fff;
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 17px;
+        tramsform:translateX(-50%);
+      }
+    }
 }
 
 .btn-link(){
   border: 0px;
   color: @green-custom;
+  background: transparent;
+  border: none;
+  .ant-btn > .anticon + span, .ant-btn > span + .anticon {
+    margin-left: 3px;
+  }
+  &:hover {
+    background: transparent;
+  }
+}
+
+.btn-link-red(){
+  border: 0px;
+  color: @color-red;
   background: transparent;
   border: none;
   .ant-btn > .anticon + span, .ant-btn > span + .anticon {
@@ -207,6 +237,23 @@ ul {
 .btn-success{
     padding: 0 50px;
     height:@btn-height-lg;
+  }
+
+  .ant-btn.btn-grey {
+    padding: 0 50px;
+    height:@btn-height-lg;
+    background: @color-grey;
+    color: #fff;
+    &:hover, &:focus {
+      background: lighten(@color-grey, 10%);
+      border-color: lighten(@color-grey, 10%);;
+      color: #fff;
+    }
+    &:active {
+      background: darken(@color-grey, 10%);
+      border-color: darken(@color-grey, 10%);;
+      color: #fff;
+    }
   }
 
 // Landing page
@@ -417,11 +464,12 @@ ul {
     }
     }
     .img-laptop {
-      img {
+      // img {
         width: 100%;
         min-width: 500px;
         height:auto;
-      }
+        background: url('/assets/images/copy.svg')
+      // }
     }
   }
 }
@@ -506,86 +554,6 @@ ul {
     display: none;
   }
 }
-
-// home
-
-.home-row {
-  margin-top: 40px;
-  &:last-of-type {
-    margin-bottom: 40px;
-  }
-}
-
-// reserve table
-.card-table {
-  border-radius: 4px;
-  .ant-card-body {
-    padding: 0
-  }
-  h2 {
-    margin: 20px 0 30px 30px;
-    line-height: 37px;
-  }
-}
-
-.reserve-table {
-  width: 90%;
-  min-width: 280px;
-  h2 {
-    margin: 20px 0 30px 30px;
-    line-height: 37px;
-  }
-  tr {
-      line-height: 47px;
-  }
-}
-.limits-table {
-  h2 {
-    margin: 20px 0 24px 30px;
-    line-height: 37px;
-  }
-  tr {
-      line-height: 58px;
-      td {
-        position: relative;
-      }
-      &.max .max-value:before {
-        content: "max";
-        color: #e24c59;
-        position:absolute;
-        bottom: 15px;
-        font-weight: bold;
-      }
-      &.min .min-value:before {
-        content: "min";
-        color: @green-custom;
-        position:absolute;
-        bottom: 15px;
-        font-weight: bold;
-      }
-  }
-}
-  .simple-table {
-    width: 100%;
-    tr {
-      &:not(:last-of-type) {
-        border-bottom: 1px solid @color-table-divider;
-      }
-      td:first-of-type {
-        padding-left: 20px;
-      }
-      th {
-        line-height: 37px;
-        border-top: 1px solid @color-table-divider;
-        border-bottom: 1px solid @color-table-divider;
-        color: @color-table-divider;
-      }
-      th:first-of-type {
-        padding-left: 20px;
-      }
-    }
-  }
-
   // Exchange Rate
   .exchange-rate-table {
     .ant-card-body {
@@ -665,19 +633,6 @@ ul {
       line-height: 40px;
     }
   }
-
-.start-chat {
-  display: flex;
-  justify-content: space-between;
-  background: @green-custom;
-  border-radius: 4px;
-  color: #fff;
-  height: 40px;
-  line-height: 40px;
-  font-weight: bold;
-  padding: 0 20px;
-  width: 254px;
-}
 
 @media only screen and (max-width: 1250px) {
   // sighin
@@ -824,201 +779,4 @@ ul {
 .full-height.ant-layout {
   min-height: 100vh;
   background: @color-bg-lighter-grey;
-}
-
-.help-page {
-  .questions-list {
-    width: 60%;
-  }
-  .ant-input {
-    background: @color-bg-lighter-grey;
-  }
-  .landing-section-header {
-    font-size: 30px;
-    text-align: left;
-    color: @green-custom;
-    &:before {
-      content: "Basics";
-      display:block;
-      color: @color-section-header;
-      margin-right: 25px;
-    }
-
-  }
-  #faq {
-    margin-top: 40px;
-    .questions-list {
-      margin-top: 40px;
-    }
-  }
-}
-
-.rates-content {
-  .choose-currency {
-    cursor: pointer;
-    margin-bottom: 20px;
-    display:flex;
-    h2 {
-      font-size: 30px;
-      font-weight: bold;
-      color: @color-section-header;
-      margin: 0 20px 0 0;
-      line-height: 64px;
-    }
-    .currency-select {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      color: @green-custom;
-      font-size: 20px;
-      font-weight: bold;
-      height: 65px;
-      width: 160px;
-      box-shadow: 0 0 2px rgba(0,0,0,.2);
-      border-radius: 4px;
-      // background: url('../assets/ukr.svg');
-      .currency-value {
-        span {
-          display: inline-block;
-          height: 34px;
-          margin-left: 44px;
-          line-height: 34px;
-        }
-        &:before {
-          content: '';
-          display: block;
-          background: url('./assets/ukr.svg');
-          width:34px;
-          height: 34px;
-          position:absolute;
-        }
-      }
-      .caret-icons {
-        display: flex;
-        flex-direction: column;
-        font-size: 14px;
-        .anticon {
-          height: 9px;
-        }
-      }
-    }
-  }
-  .currency-rates-chart {
-    .ant-card-body {
-      height: 100%;
-      padding: 15px 20px 10px;
-      .no-chart-placeholder {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 20px;
-        color: @color-grey;
-        text-align: center;
-      }
-    }
-    width: 50%;
-    height: 300px;
-    margin: 0 auto 40px;
-    background: #fff;
-    border-radius: 4px;
-  }
-}
-
-.overlay {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: rgda(0,0,0, .5);
-  .select-currency-modal {
-    height: 100%;
-    padding: 15px 20px 10px;
-  }
-}
-
-.currencies-wrapper {
-  position:relative;
-  margin-bottom: 40px;
-  h2 {
-    color: @color-section-header;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  .prev-currencies {
-    position: absolute;
-    top: 50%;
-    left: -50px;
-    font-size: 25px;
-    color: @green-custom;
-    font-weight: bold;
-  }
-  .next-currencies {
-    position: absolute;
-    top: 50%;
-    right: -50px;
-    font-size: 25px;
-    color: @green-custom;
-    font-weight: bold;
-  }
-  .currencies-slider {
-    display: flex;
-    justify-content: space-between;
-    position:relative;
-    overflow: hidden;
-    padding: 2px;
-  }
-}
-
-.currency-box {
-  flex-shrink: 0;
-  display:flex;
-  flex-direction: column;
-  font-size:  12px;
-  margin: 0 5px;
-  h3 {
-    font-size: 14px;
-    font-weight: bold;
-    color: @color-block-header;
-    text-align:center;
-    margin-bottom: 20px;
-  }
-  &.ant-card-bordered {
-    border: 0;
-  }
-  .ant-card-body {
-    padding: 15px 20px 10px;
-  }
-  width: 160px;
-  heigth: 138px;
-  box-shadow: 0 0 2px rgba(0,0,0,.2);
-  .rate-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    text-align:center;
-    .rate-info-col {
-      .currency-box-text {
-        line-height: 17px;
-        color: @color-block-descr;
-      }
-      .currency-box-rate {
-        line-height: 17px;
-        color: @color-block-header;
-      }
-      .sell-rate-changes {
-        line-height: 17px;
-        color: @color-red;
-      }
-      .buy-rate-changes {
-        line-height: 17px;
-        color: @green-custom;
-      }
-    }
-  }
-  .currency-box-date {
-    line-height: 15px;
-    color: @color-grey;
-    text-align:center;
-  }
 }

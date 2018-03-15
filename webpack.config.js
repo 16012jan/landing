@@ -2,15 +2,24 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 
 module.exports = {
-  entry: ["./src/index.js"],
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    "./src/index.js",
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
+    publicPath: "/",
     filename: "[name].js"
   },
+  watch: isDevelopment,
   module: {
     rules: [
       {
@@ -49,10 +58,10 @@ module.exports = {
         }]
       },{
         test: /\.woff2?$|\.woff$|\.ttf$|\.eot$/,
-        loader: 'file-loader?[name].[ext]&outputPath=./assets/fonts/&publicPath=assets/fonts/'
+        loader: 'file-loader?name=[name].[ext]&outputPath=./assets/fonts/&publicPath=/assets/fonts/'
       },{
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader?[name].[ext]&outputPath=./assets/images/&publicPath=assets/images/'
+        loader: 'file-loader?name=[name].[ext]&outputPath=./assets/images/&publicPath=/assets/images/'
       }
     ]
   },
@@ -60,12 +69,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         BROWSER: JSON.stringify(true),
         NODE_ENV: JSON.stringify( process.env.NODE_ENV || 'development')
       }
     }),
+    new CopyWebpackPlugin([
+        {from:'./src/assets/images',to:'./assets/images'}
+    ]),
     // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('bundle.css'),
@@ -94,10 +108,22 @@ module.exports = {
     //   children: true,
     //   async: true,
     // }),
-    // new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin()
   ],
+  devtool:  isDevelopment ? 'source-map' : false,
   devServer: {
-    contentBase: "./dist",
-    historyApiFallback: true
+    contentBase: "/",
+    watchContentBase: true,
+    hot:true,
+    inline:true,
+    historyApiFallback: true,
+    overlay: {
+     warnings: true,
+     errors: true
+   },
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+
   }
 };

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress",
+    "start": "NODE_ENV=development webpack-dev-server",
     "build": "webpack"
   },
   "keywords": [],
@@ -19,7 +19,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.24.1",
     "compression-webpack-plugin": "^1.1.10",
-    "copy-webpack-plugin": "^4.5.0",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
@@ -29,20 +29,21 @@
     "less-loader": "^3.0.0",
     "postcss-loader": "^2.1.1",
     "prop-types": "^15.6.1",
-    "react-hot-loader": "^4.0.0",
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^3.11.0",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^2.10.0"
+    "webpack-dev-server": "^2.11.2"
   },
   "dependencies": {
     "antd": "^3.2.2",
     "chart.js": "^2.7.2",
     "normalize.less": "^1.0.0",
+    "qrcode-react": "^0.1.16",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
+    "react-recaptcha": "^2.3.7",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2"

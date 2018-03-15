@@ -1,7 +1,7 @@
 import React,{PureComponent} from 'react'
-import { Button, Icon } from 'antd';
+import { Button, Icon } from 'antd'
 
-import LandingMenu from '../LandingMenu/LandingMenu';
+import LandingMenu from '../LandingMenu/LandingMenu'
 
 class LandingFooter extends PureComponent {
   goToTop = () => {

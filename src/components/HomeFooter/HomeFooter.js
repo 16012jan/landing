@@ -1,5 +1,8 @@
 import React,{Component} from "react";
+import classNames from 'classnames';
 import { Icon, Button } from '../../modules/antd';
+
+import SupportChat from '../SupportChat/SupportChat';
 
 class HomeFooter extends Component {
   render() {
@@ -15,13 +18,8 @@ class HomeFooter extends Component {
             <Icon type="arrow-right" />
           </Button>
         </div>
-        <img src="assets/pay-pal.png" alt="Pay Pal Logo"/>
-        <div className="start-chat">
-          <span>Support Chat</span>
-          <div>
-          <Icon type="down" />
-          </div>
-        </div>
+        <img src="/assets/images/pay-pal.png" alt="Pay Pal Logo"/>
+          <SupportChat />
       </footer>
     )
   }

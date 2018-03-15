@@ -1,0 +1,118 @@
+//  variables
+@color-yellow: #fff781;
+@color-grey: #bbb;
+@color-section-header: #363636;
+@color-page-header: @color-section-header;
+@color-input-text: @color-section-header;
+@color-block-header: #424242;
+@color-block-descr: #7f7f7f;
+@color-bg-light-grey: #f5f5f5;
+@color-bg-lighter-grey: #fafafc;
+@menu-bg: transparent;
+@main-theme-bg: linear-gradient(to right, #1d1e63 0%,#0f1526 100%);
+@color-table-divider: #dadada;
+@color-btn-blue: linear-gradient(31deg, #3a3897, #29abe2);
+@color-red: #e24c59;
+
+ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+@green-custom: #44b91a;
+@primary-color: @green-custom;
+@btn-border-radius-base: 10em;
+@btn-font-weight: bold;
+@btn-font-size-default: 16px;
+@btn-font-size-lg: @btn-font-size-default;
+@input-height-base: 39px;
+
+// headers
+@login-banner-header: 44px;
+@login-banner-text: 20px;
+@section-header: 30px;
+
+
+// card
+@card-padding-base: 20px 50px 30px 20px;
+@landing-section-header: 38px;
+
+// home
+
+.home-row {
+  margin-top: 40px;
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
+// reserve table
+.card-table {
+  border-radius: 4px;
+  .ant-card-body {
+    padding: 0
+  }
+  h2 {
+    margin: 20px 0 30px 30px;
+    line-height: 37px;
+  }
+}
+
+.reserve-table {
+  width: 90%;
+  min-width: 280px;
+  h2 {
+    margin: 20px 0 30px 30px;
+    line-height: 37px;
+  }
+  tr {
+      line-height: 47px;
+  }
+}
+.limits-table {
+  h2 {
+    margin: 20px 0 24px 30px;
+    line-height: 37px;
+  }
+  tr {
+      line-height: 58px;
+      td {
+        position: relative;
+      }
+      &.max .max-value:before {
+        content: "max";
+        color: #e24c59;
+        position:absolute;
+        bottom: 15px;
+        font-weight: bold;
+      }
+      &.min .min-value:before {
+        content: "min";
+        color: @green-custom;
+        position:absolute;
+        bottom: 15px;
+        font-weight: bold;
+      }
+  }
+}
+  .simple-table {
+    width: 100%;
+    tr {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid @color-table-divider;
+      }
+      td:first-of-type {
+        padding-left: 20px;
+      }
+      th {
+        line-height: 37px;
+        border-top: 1px solid @color-table-divider;
+        border-bottom: 1px solid @color-table-divider;
+        color: @color-table-divider;
+      }
+      th:first-of-type {
+        padding-left: 20px;
+      }
+    }
+  }
