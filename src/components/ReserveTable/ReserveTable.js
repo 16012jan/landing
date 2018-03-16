@@ -10,26 +10,26 @@ const reserve = [
 ]
 
 class ReserveTable extends Component {
-  render () {
-    return(
-      <Card className="reserve-table card-table">
-        <h2>Reserve</h2>
-        <table className="simple-table">
-          <tbody>
-          {reserve.map(row => {
-            const key = row.name.toLowerCase().split(' ').join('_');
-            return (
-              <tr key={key}>
-              <td>{row.name}</td>
-              <td>{row.value}</td>
-              </tr>
-            )
-          })}
-          </tbody>
-        </table>
-      </Card>
-    )
-  }
+    render () {
+        return (
+            <Card className="reserve-table card-table">
+                <h2>Reserve</h2>
+                <table className="simple-table">
+                    <tbody>
+                    {reserve.map(row => {
+                        const key = row.name.toLowerCase().split(' ').join('_');
+                        return (
+                            <tr key={key}>
+                                <td>{row.name}</td>
+                                <td>{row.value}</td>
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+            </Card>
+        )
+    }
 }
 
 export default ReserveTable

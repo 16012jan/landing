@@ -19,7 +19,7 @@ class ConvertionCurrenciesInfo extends Component {
           <Icon type="right" className="next-currencies"/>
         </div>
         <div className="currencies-wrapper">
-          <h2>Cryptocurr</h2>
+          <h2>cryptocurrency</h2>
           <Icon type="left" className="prev-currencies"/>
           <div className="currencies-slider">
             {cryptoCurrencisInfoMockData.map((currency, index) => (

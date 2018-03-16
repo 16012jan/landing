@@ -38,6 +38,15 @@ ul {
 @card-padding-base: 20px 50px 30px 20px;
 @landing-section-header: 38px;
 
+.currency-img-before(@url){
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  top:0;
+  background: url(@url) no-repeat top center;
+}
 
 .rates-content {
   .choose-currency {
@@ -157,16 +166,18 @@ ul {
     .currencies-modal-slider {
       display:flex;
       .currency-info {
+        position:relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0 5px;
-        .currency-logo {
-          width: 50px;
-          height: 50px;
-          background: #333;
-          border-radius: 50%;
-          margin-bottom: 12px;
+        padding-top: 62px;
+        width:50px;
+        &.bitcoin:before {
+          .currency-img-before('../assets/bitcoin.svg')
+        }
+        &.ethereum:before {
+          .currency-img-before('../assets/ethereum.svg')
         }
         .currency-name {
           font-weight: bold;

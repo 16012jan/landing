@@ -36,13 +36,11 @@ class Rates extends Component {
                 <div className="currencies-modal-wrapper">
                   <Icon type="left" className="prev-currencies"/>
                   <div className="currencies-modal-slider">
-                      <div className="currency-info">
-                        <div className="currency-logo"></div>
-                        <div className="currency-name">BTC</div>
-                      </div>
-                      <div className="currency-info">
-                        <div className="currency-logo"></div>
+                      <div className="currency-info ethereum">
                         <div className="currency-name">ETH</div>
+                      </div>
+                      <div className="currency-info bitcoin">
+                        <div className="currency-name">BTC</div>
                       </div>
                   </div>
                   <Icon type="right" className="next-currencies"/>

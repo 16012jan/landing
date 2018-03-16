@@ -21,15 +21,8 @@
 @color-btn-blue: linear-gradient(31deg, #3a3897, #29abe2);
 @color-red: #e24c59;
 
-ul {
-  margin:0;
-  padding:0;
-  list-style: none;
-}
-
 @green-custom: #44b91a;
 @primary-color: @green-custom;
-@primary-6: tra
 @btn-border-radius-base: 10em;
 @btn-font-weight: bold;
 @btn-font-size-default: 16px;
@@ -41,14 +34,22 @@ ul {
 @login-banner-text: 20px;
 @section-header: 30px;
 
-
 // card
 @card-padding-base: 20px 50px 30px 20px;
 @landing-section-header: 38px;
 
-// .anticon.anticon-arrow-right {
-//   font-size: 10px;
-// }
+ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+
+// remove btn click animation
+.ant-btn-clicked:after {
+    animation-duration: 0s !important;
+}
+
 
 .ant-menu-horizontal {
     justify-content: flex-end;
@@ -309,19 +310,10 @@ ul {
   align-items: flex-end;
 }
 
-// .embeded-dropdown {
-//   position: absolute;
-//   height: 39px;
-//   right: 0px;
-//   padding: 0 0 0 20px;
-//   line-height: 36px;
-//   height: 36px;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   border: 0;
-//   margin-right: 5px;
-//   box-shadow: none;
-// }
+
+.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
+  font-weight: bold;
+}
 .ant-row.ant-form-item.input-with-dropdown {
   .ant-input {
     width:60%;

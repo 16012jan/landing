@@ -34,21 +34,27 @@
 
 .chat-wrapper {
   position:relative;
-  width: 254px;
-  .chat .chat-panel {
-    display: none;
+  width:350px;
+  .chat {
+    width:285px;
+    .chat-panel {
+      display: none;
+    }
   }
   &.active {
-    width:350px;
-    .chat .chat-panel {
-      display: block;
+    .chat {
+      width:100%;
+      .chat-panel {
+        display: block;
+      }
     }
+
   }
 }
 .chat {
-  width: 100%;
   position:absolute;
   bottom:0;
+  right:0;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   background: #fff;
   background: #fff;
@@ -74,6 +80,15 @@
     color: #fff;
     padding: 10px 42px;
     height: 40px;
+    border:0;
+    &:hover,
+    &:focus,
+    &:active {
+      background: @color-btn-blue, 10%;
+      color: #fff;
+      opacity: .9;
+      border:0;
+    }
   }
 }
 .start-chat {
